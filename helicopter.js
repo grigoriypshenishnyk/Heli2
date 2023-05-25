@@ -23,6 +23,10 @@ document.addEventListener("keydown", function (e) {
   e.code === "Space" && jump();
 });
 
+document.addEventListener("touchstart", function (e) {
+  jump();
+});
+
 function jump() {
   if (helicopter.classList != "jump") {
     helicopter.classList.add("jump");

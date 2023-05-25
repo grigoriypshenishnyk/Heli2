@@ -23,7 +23,7 @@ document.addEventListener("keydown", function (e) {
   e.code === "Space" && jump();
 });
 
-document.addEventListener("touchstart", function (e) {
+document.addEventListener("touchstart", function () {
   jump();
 });
 

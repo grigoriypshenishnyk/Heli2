@@ -6,7 +6,7 @@ const hill = document.querySelector(".hill");
 const propeller = document.querySelector(".propeller");
 const game = document.querySelector(".game");
 const gameOver = document.querySelector(".gameOver");
-
+let gameStarted = false;
 
 const startGame = () => {
   start.style.display = "none";
@@ -14,6 +14,7 @@ const startGame = () => {
   game.style.display = "block";
   propeller.style.animationPlayState = 'running'
   hill.style.animationPlayState = 'running';
+  gameStarted = true;
 };
 
 buttonStart.onclick = startGame;
@@ -24,7 +25,7 @@ document.addEventListener("keydown", function (e) {
 });
 
 document.addEventListener("touchstart", function () {
-  jump();
+  gameStarted && jump();
 });
 
 function jump() {
@@ -50,7 +51,8 @@ setInterval(function () {
     hill.style.animationPlayState = 'paused'
     
     setTimeout(() => {
-       gameOver.style.display = "block";
+        gameStarted = false
+        gameOver.style.display = "block";
         game.style.display = "none"; 
     }, 100)
     
